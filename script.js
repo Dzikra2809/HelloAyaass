@@ -116,7 +116,7 @@
 
   /* ---------- TYPEWRITER ---------- */
   const TYPE_TEXT =
-    "I don't know exactly when it happened, but one day I realized — you're someone special. Not because of anything big, but because of all the little things you do.";
+    "I want you not for fun, not to hurt you, and not to use you. I want you because i truly care, You deserve to feel loved, supported, valued, and safe.";
   function startTypewriter() {
     const el = document.getElementById("typeText");
     if (!el) return;
