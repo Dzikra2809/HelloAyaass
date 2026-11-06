@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You — Will You Be Mine?</title>
+  <meta name="description" content="A heartfelt confession, made with love." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="scroll-locked">
+  <!-- ============ LOADING SCREEN ============ -->
+  <div class="loader" id="loader">
+    <div class="loader-flower">
+      <svg viewBox="0 0 100 100" width="90" height="90" aria-hidden="true">
+        <g class="petals">
+          <ellipse cx="50" cy="28" rx="11" ry="20" fill="url(#pg)"/>
+          <ellipse cx="50" cy="72" rx="11" ry="20" fill="url(#pg)"/>
+          <ellipse cx="28" cy="50" rx="20" ry="11" fill="url(#pg)"/>
+          <ellipse cx="72" cy="50" rx="20" ry="11" fill="url(#pg)"/>
+          <ellipse cx="34" cy="34" rx="11" ry="18" transform="rotate(-45 34 34)" fill="url(#pg)"/>
+          <ellipse cx="66" cy="34" rx="11" ry="18" transform="rotate(45 66 34)" fill="url(#pg)"/>
+          <ellipse cx="34" cy="66" rx="11" ry="18" transform="rotate(45 34 66)" fill="url(#pg)"/>
+          <ellipse cx="66" cy="66" rx="11" ry="18" transform="rotate(-45 66 66)" fill="url(#pg)"/>
+        </g>
+        <circle cx="50" cy="50" r="9" fill="#fff3d6"/>
+        <defs>
+          <radialGradient id="pg" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#ffd4e5"/>
+            <stop offset="100%" stop-color="#e26ea0"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <p class="loader-text">opening with all my heart...</p>
+  </div>
+
+  <!-- ============ AMBIENT PARTICLES ============ -->
+  <div class="petals-layer" id="petalsLayer" aria-hidden="true"></div>
+  <div class="sparkles-layer" id="sparklesLayer" aria-hidden="true"></div>
+
+  <!-- ============ HERO ============ -->
+  <section class="section hero" id="hero">
+    <div class="hero-inner">
+      <p class="eyebrow reveal">there's something I've been meaning to tell you</p>
+      <h1 class="title reveal">I Like <em>You</em></h1>
+      <p class="subtitle reveal">Scroll slowly. Every section is a piece of how I feel.</p>
+      <div class="scroll-indicator reveal" aria-hidden="true">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MUSIC PLAYER ============ -->
+  <section class="section music" id="music">
+    <h2 class="section-title reveal">The Song of This Feeling</h2>
+    <div class="player glass reveal" id="player">
+      <div class="vinyl" id="vinyl">
+        <div class="vinyl-art"></div>
+      </div>
+      <audio id="musicAudio" preload="auto" src="Dance With Me - Bruno Mars.mp3"></audio>
+      <div class="player-info">
+        <p class="track-title" id="trackTitle">Dance With Me</p>
+        <p class="track-artist" id="trackArtist">— Bruno Mars</p>
+        <div class="progress" id="progress"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="controls">
+          <button class="ctrl" id="prevBtn" aria-label="Previous">⏮</button>
+          <button class="ctrl play" id="playBtn" aria-label="Play">▶</button>
+          <button class="ctrl" id="nextBtn" aria-label="Next">⏭</button>
+          <div class="volume">
+            <span>🔊</span>
+            <input type="range" min="0" max="1" step="0.01" value="0.6" id="volume" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============ LYRICS ============ -->
+    <div class="lyrics-card glass reveal" id="lyricsCard">
+      <div class="lyrics-header">
+        <span class="lyrics-note">♫</span>
+        <span class="lyrics-title">Lyrics</span>
+        <span class="lyrics-note">♫</span>
+      </div>
+      <div class="lyrics-viewport" id="lyricsViewport">
+        <div class="lyrics-track" id="lyricsTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO / TYPEWRITER ============ -->
+  <section class="section intro" id="intro">
+    <h2 class="section-title reveal">This Feeling</h2>
+    <div class="glass narrow reveal">
+      <p class="type" id="typeText"></p>
+      <p class="quote">"You are the reason I find myself smiling without even realizing it."</p>
+    </div>
+  </section>
+
+  <!-- ============ GIFT BOX ============ -->
+  <section class="section gift" id="gift">
+    <h2 class="section-title reveal">Something For You</h2>
+    <p class="section-sub reveal">Tap to open it</p>
+    <div class="giftbox-wrap reveal">
+      <div class="giftbox" id="giftbox" role="button" tabindex="0" aria-label="Open gift">
+        <div class="gift-lid">
+          <div class="bow"></div>
+        </div>
+        <div class="gift-body">
+          <div class="ribbon-v"></div>
+        </div>
+        <div class="gift-light"></div>
+      </div>
+      <div class="gift-message glass" id="giftMessage">
+        <p class="gift-prompt">Will you be my girlfriend? 💗</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOUQUET ============ -->
+  <section class="section bouquet" id="bouquet">
+    <h2 class="section-title reveal">These Flowers Are Yours</h2>
+    <div class="bouquet-wrap reveal">
+      <div class="bouquet-stage" id="bouquetStage"></div>
+      <div class="butterfly" style="--d:0s"></div>
+      <div class="butterfly b2" style="--d:3s"></div>
+      <div class="card glass">
+        <p class="script">for you, who has always been there —</p>
+        <p>and I want to keep being by your side.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOVE LETTER ============ -->
+  <section class="section letter" id="letter">
+    <h2 class="section-title reveal">A Letter For You</h2>
+    <div class="envelope-wrap reveal">
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open letter">
+        <div class="env-back"></div>
+        <div class="env-letter" id="envLetter">
+          <p class="script big">Hey you,</p>
+          <p>I've been holding onto this feeling for a while. Every time we talk, I always feel like there's something more than just friendship between us.</p>
+          <p>I like you. Genuinely. And I hope you'll give us a chance.</p>
+          <p class="script signoff">— someone who really likes you</p>
+        </div>
+        <div class="env-flap"></div>
+        <div class="env-front"><div class="env-heart">♥</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <h2 class="section-title reveal">Our Date and Places I'd Love to Visit With You</h2>
+    <div class="polaroids reveal" id="polaroids">
+      <div class="polaroid" data-img="Image/First Date.jpeg" data-cap="First Date"></div>
+      <div class="polaroid" data-img="Image/i love pulang w u.jpeg" data-cap="Going Home With You"></div>
+      <div class="polaroid" data-img="Image/Dinner with u.jpg" data-cap="Dinner Together"></div>
+      <div class="polaroid" data-img="Image/walking around.jpg" data-cap="Walking Around"></div>
+      <div class="polaroid" data-img="Image/photobooth.jpeg" data-cap="Photobooth Memories"></div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL SURPRISE — YES OR NO ============ -->
+  <section class="section surprise" id="surprise">
+    <h2 class="section-title reveal">One Last Question...</h2>
+    <p class="section-sub reveal">Tap the bottle to open it</p>
+    <div class="bottle-wrap reveal">
+      <div class="bottle" id="bottle" role="button" tabindex="0" aria-label="Open bottle">
+        <div class="bottle-cap"></div>
+        <div class="bottle-body">
+          <div class="bottle-shine"></div>
+          <div class="bottle-scroll"></div>
+        </div>
+      </div>
+      <div class="final-message glass" id="finalMessage">
+        <p class="script big">So, what do you say? —</p>
+        <p>I'm serious. I just want you to know how much you mean to me.</p>
+        <div class="confession-choice" id="confessionChoice">
+          <button class="confession-btn confession-btn-yes" id="confessionYes" type="button">Yes, I will! 💗</button>
+          <button class="confession-btn confession-btn-no" id="confessionNo" type="button">No</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENDING ============ -->
+  <section class="section ending" id="ending">
+    <div class="ending-inner">
+      <h2 class="title" id="endingTitle">Thank You For Saying Yes.</h2>
+      <p class="subtitle" id="endingSubtitle">— I truly care about you ♥</p>
+    </div>
+    <div class="sakura-layer" id="sakuraLayer" aria-hidden="true"></div>
+  </section>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
